@@ -19,21 +19,24 @@ public class Helper {
         imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
     }
 
-    public static Snackbar snackbar(Context context,View view, String message){
-        Snackbar snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG);
+  public static Snackbar snackbar(Context context,View view,String message){
+        Snackbar snackbar = Snackbar.make(view,message,Snackbar.LENGTH_LONG);
         View snackBarView = snackbar.getView();
-        TextView textView = ButterKnife.findById(snackBarView, R.id.snackbar_text);
-        textView.setTextColor(context.getResources().getColor(R.color.white));
-        snackbar.setActionTextColor(context.getResources().getColor(R.color.orange));
+        TextView textView =  (TextView) snackBarView.findViewById(R.id.snackbar_text);
+        textView.setTextColor(ContextCompat.getColor(context,android.R.color.white));
+        snackbar.setActionTextColor(ContextCompat.getColor(context,android.R.color.holo_orange_light));
+
         return snackbar;
     }
-    public static Snackbar snackbarListener(Context context,View view, String message,View.OnClickListener listener){
-        Snackbar snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG);
-        snackbar.setAction("Coba Lagi",listener);
+
+    public static Snackbar snackbarListener(Context context,View view,String message,View.OnClickListener listener){
+        Snackbar snackbar = Snackbar.make(view, message,Snackbar.LENGTH_LONG);
+        snackbar.setAction("Coba lagi",listener);
         View snackBarView = snackbar.getView();
-        TextView textView = ButterKnife.findById(snackBarView, R.id.snackbar_text);
-        textView.setTextColor(context.getResources().getColor(R.color.white));
-        snackbar.setActionTextColor(context.getResources().getColor(R.color.orange));
+        TextView textView = (TextView) snackBarView.findViewById(R.id.snackbar_text);
+        textView.setTextColor(ContextCompat.getColor(context,android.R.color.white));
+        snackbar.setActionTextColor(ContextCompat.getColor(context,android.R.color.holo_orange_light));
+
         return snackbar;
     }
 }
